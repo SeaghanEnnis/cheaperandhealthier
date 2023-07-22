@@ -1,0 +1,4 @@
+type Micro ={
+    id: number;
+
+}
