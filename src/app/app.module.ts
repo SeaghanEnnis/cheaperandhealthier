@@ -7,6 +7,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { MealOfTheDayComponent } from './home/meal-of-the-day/meal-of-the-day.component';
 import { HomeMessageComponent } from './home/home-message/home-message.component';
+import { MealsComponent } from './meals/meals.component';
+import { FoodsComponent } from './foods/foods.component';
+import { FoodSelectionComponent } from './food-selection/food-selection.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,20 @@ import { HomeMessageComponent } from './home/home-message/home-message.component
     NavbarComponent,
     HomeComponent,
     MealOfTheDayComponent,
-    HomeMessageComponent
+    HomeMessageComponent,
+    FoodsComponent,
+    FoodSelectionComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: 'meals', component: MealsComponent},
+      {path: 'foods', component: FoodsComponent, 
+        children:[{
+          path: 'food-selection', component: FoodSelectionComponent
+        }]
+      },
     ]),
   ],
   providers: [],
