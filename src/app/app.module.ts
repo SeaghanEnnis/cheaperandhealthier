@@ -24,6 +24,7 @@ import { FoodSelectionComponent } from './foods/food-selection/food-selection.co
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
       {path: 'meals', component: MealsComponent},
       {path: 'foods', component: FoodsComponent, 
