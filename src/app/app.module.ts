@@ -9,7 +9,7 @@ import { MealOfTheDayComponent } from './home/meal-of-the-day/meal-of-the-day.co
 import { HomeMessageComponent } from './home/home-message/home-message.component';
 import { MealsComponent } from './meals/meals.component';
 import { FoodsComponent } from './foods/foods.component';
-import { FoodSelectionComponent } from './food-selection/food-selection.component';
+import { FoodSelectionComponent } from './foods/food-selection/food-selection.component';
 
 @NgModule({
   declarations: [
