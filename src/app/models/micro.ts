@@ -1,4 +1,4 @@
-type Micro ={
+export type Micro ={
     id: number;
 
     //Vitamins

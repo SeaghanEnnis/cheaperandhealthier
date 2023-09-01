@@ -1,12 +1,15 @@
-type Food = {
+import {Macro} from './macro';
+import {Micro} from './micro';
+
+export type Food = {
     id: number;
     name: string;
 
-    type: string;
-    price: number;
+    type: string | null;
+    price: number | null;
     
-    calories: number;
-    macro: Macro;
-    micro: Micro;
+    calories: number | null;
+    macro?: Macro;
+    micro?: Micro;
 
 }

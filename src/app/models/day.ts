@@ -1,4 +1,6 @@
-type Day = {
+import {Meal} from './meal';
+
+export type Day = {
     id: number;
     name: string;
     dayOfWeek: number;
