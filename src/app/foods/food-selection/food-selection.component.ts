@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import {MEATS} from '../../data/meats';
+import {MEATS} from '../../data/foods/meats';
 
 @Component({
   selector: 'app-food-selection',
