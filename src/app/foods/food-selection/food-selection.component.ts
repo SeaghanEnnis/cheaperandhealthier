@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import {MatTableModule} from '@angular/material/table';
 
 import {MEATS} from '../../data/foods/meats';
+import {VEGETABLES} from '../../data/foods/vegetables';
 
 @Component({
   selector: 'app-food-selection',
@@ -9,4 +11,6 @@ import {MEATS} from '../../data/foods/meats';
 })
 export class FoodSelectionComponent {
   meats = MEATS;
+  vegetables = VEGETABLES;
+  columnsToDisplay =["id","name"]
 }
