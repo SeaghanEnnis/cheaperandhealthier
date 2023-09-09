@@ -5,8 +5,10 @@ import {VEGETABLES} from '../../data/foods/vegetables';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Food } from 'src/app/models/food';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { GRAINS } from 'src/app/data/foods/grains';
+import { FRUITS } from 'src/app/data/foods/fruits';
+import { SPICIES } from 'src/app/data/foods/spicies';
+import { DRINKS } from 'src/app/data/foods/drinks';
 
 
 @Component({
@@ -15,18 +17,25 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrls: ['./food-selection.component.css'],
 })
 export class FoodSelectionComponent implements AfterViewInit {
-  meats = MEATS;
-  vegetables = VEGETABLES;
-  allFoods = new MatTableDataSource<Food>(MEATS.concat(VEGETABLES));
-  columnsToDisplay: string[] = ["id","name", "type", "price", "calories"];
 
+  allFoodArray:  Food[] = [];
+
+  allFoods = new MatTableDataSource<Food>();
+  columnsToDisplay: string[] = ["id","name", "type", "price", "calories"];
+    
+  constructor(){
+    this.allFoodArray.push(...MEATS,...VEGETABLES, ...FRUITS, ...GRAINS, ...SPICIES, ...DRINKS);
+
+    this.allFoods = new MatTableDataSource<Food>(this.allFoodArray);
+  }
 
   @ViewChild(MatPaginator) paginator :any = MatPaginator;
   @ViewChild(MatSort) sort: any =  MatSort;
 
   ngAfterViewInit() {
-    this.allFoods.sort = this.sort;
+    //this.allFoods.sort = this.sort;
     this.allFoods.paginator = this.paginator;
+    this.allFoods.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -36,3 +45,5 @@ export class FoodSelectionComponent implements AfterViewInit {
   }
 
 }
+
+
