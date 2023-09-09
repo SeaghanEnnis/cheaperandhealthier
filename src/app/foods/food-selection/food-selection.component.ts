@@ -5,6 +5,8 @@ import {VEGETABLES} from '../../data/foods/vegetables';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Food } from 'src/app/models/food';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @Component({
@@ -25,6 +27,12 @@ export class FoodSelectionComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.allFoods.sort = this.sort;
     this.allFoods.paginator = this.paginator;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    console.log(filterValue);
+    this.allFoods.filter = filterValue.trim().toLowerCase();
   }
 
 }
