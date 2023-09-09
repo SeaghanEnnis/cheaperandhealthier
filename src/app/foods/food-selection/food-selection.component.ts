@@ -12,5 +12,6 @@ import {VEGETABLES} from '../../data/foods/vegetables';
 export class FoodSelectionComponent {
   meats = MEATS;
   vegetables = VEGETABLES;
-  columnsToDisplay =["id","name"]
+  allFoods = MEATS.concat(VEGETABLES);
+  columnsToDisplay: string[] = ["id","name", "type", "price", "calories"];
 }
