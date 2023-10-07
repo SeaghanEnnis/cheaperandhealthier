@@ -1,6 +1,10 @@
 export type Micro ={
     id: number;
 
+    //other
+    sugar: number;
+    fiber: number;
+
     //Vitamins
     vitamin_a_mg: number;
     vitamin_b1_mg: number; //Thiamin
@@ -19,9 +23,9 @@ export type Micro ={
     //Minerals
     calcium_mg: number;
     chloride_mg: number;
-    chromium_ug: number;
-    copper_ug: number;
-    flouride_ug: number;
+    //chromium_ug: number;
+    copper_mg: number;
+    //flouride_ug: number;
     iron_mg: number;
     magnesium_mg: number;
     manganese_mg: number;
