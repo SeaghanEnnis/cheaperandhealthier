@@ -3,7 +3,6 @@ import json
 f = open("rawdata/foodDump.json")
 
 data = json.load(f)
-x = 0
 
 list_of_nutrients = ["Energy", "Protein", "Carbohydrate, by summation",
                      "Total lipid (fat)", "Sugars, Total","Fiber, total dietary",
@@ -14,25 +13,32 @@ list_of_nutrients = ["Energy", "Protein", "Carbohydrate, by summation",
                      "Vitamin K (Dihydrophylloquinone)", "Vitamin K (phylloquinone)"]
 
 total_output = {}
-total_output["foods"] = {}
+total_output = {}
 for i in data['FoundationFoods']:
     #print(i['description'])
-    food_output = []
+    food_output = {}
 
     for nutrient in i['foodNutrients']:
         nutrient_output = {}
         if nutrient['nutrient']['name'] in list_of_nutrients:
-            #print(nutrient['nutrient']['name'] +" " + str(nutrient["amount"]), end = " ")
-            nutrient_output['name'] = nutrient['nutrient']['name']
-            nutrient_output["amount"] = nutrient["amount"]
-            nutrient_output["unit"] = nutrient['nutrient']["unitName"]
+            if(nutrient['nutrient']['name'] == "Energy"):
+                if(nutrient['nutrient']["unitName"] != "kJ"):
+                    nutrient_output['name'] = nutrient['nutrient']['name']
+                    nutrient_output["amount"] = nutrient["amount"]
+                    nutrient_output["unit"] = nutrient['nutrient']["unitName"]
+            else:
+                nutrient_output['name'] = nutrient['nutrient']['name']
+                nutrient_output["amount"] = nutrient["amount"]
+                nutrient_output["unit"] = nutrient['nutrient']["unitName"]
         if nutrient_output != {}:
-            food_output.append(nutrient_output)
+            food_output[nutrient_output['name']] = nutrient_output
 
-    total_output["foods"][i['description']] = food_output
+    total_output[i['description']] = {}
+    total_output[i['description']]["name"] = i['description']
+    total_output[i['description']]["nutrients"] = food_output
 
 
-w = open("rawdata/src_data_filtered.txt", "w")
+w = open("rawdata/src_data_read.json", "w")
 w.write(json.dumps(total_output))
 f.close()
 w.close()

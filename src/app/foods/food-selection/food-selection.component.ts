@@ -9,6 +9,7 @@ import { GRAINS } from 'src/app/data/foods/grains';
 import { FRUITS } from 'src/app/data/foods/fruits';
 import { SPICIES } from 'src/app/data/foods/spicies';
 import { DRINKS } from 'src/app/data/foods/drinks';
+import { ALL } from 'src/app/data/foods/all';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class FoodSelectionComponent implements AfterViewInit {
   columnsToDisplay: string[] = ["id","name", "type", "price", "calories"];
     
   constructor(){
-    this.allFoodArray.push(...MEATS,...VEGETABLES, ...FRUITS, ...GRAINS, ...SPICIES, ...DRINKS);
+    this.allFoodArray.push(...ALL,...MEATS,...VEGETABLES, ...FRUITS, ...GRAINS, ...SPICIES, ...DRINKS);
 
     this.allFoods = new MatTableDataSource<Food>(this.allFoodArray);
   }
