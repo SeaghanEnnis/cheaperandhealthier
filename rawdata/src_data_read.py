@@ -12,12 +12,10 @@ list_of_nutrients = ["Energy", "Protein", "Carbohydrate, by summation",
                      "Vitamin C, total ascorbic acid","Vitamin D (D2 + D3)","Vitamin E (alpha-tocopherol)", 
                      "Vitamin K (Dihydrophylloquinone)", "Vitamin K (phylloquinone)"]
 
-total_output = {}
+
 total_output = {}
 for i in data['FoundationFoods']:
-    #print(i['description'])
     food_output = {}
-
     for nutrient in i['foodNutrients']:
         nutrient_output = {}
         if nutrient['nutrient']['name'] in list_of_nutrients:
