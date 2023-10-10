@@ -27,6 +27,21 @@ ignore_foods = [
     "Egg, white, raw, frozen, pasteurized",
     "Egg, whole, dried",
     "Egg, whole, raw, frozen, pasteurized",
+    "Flour, rice, glutinous",
+    "Flour, rice, white, unenriched",
+    "Flour, semolina, coarse and semi-coarse",
+    "Flour, soy, defatted",
+    "Flour, wheat, all-purpose, enriched, unbleached",
+    "Flour, whole wheat, unenriched",
+    "Kale, frozen, cooked, boiled, drained, without salt",
+    "Lettuce, cos or romaine, raw",
+    "Orange juice, no pulp, not fortified, from concentrate, refrigerated",
+    "Seeds, sunflower seed, kernel, raw",
+    "Soy milk, sweetened, plain, refrigerated",
+    "Turkey, ground, 93% lean, 7% fat, pan-broiled crumbles",
+    "Flour, 00",
+    "Restaurant, Chinese, sweet and sour pork",
+    "Yogurt, Greek, strawberry, nonfat"
 
 ]
 x = 1
