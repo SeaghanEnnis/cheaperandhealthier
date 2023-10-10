@@ -1,10 +1,17 @@
 import {Meal} from './meal';
 
-export type Day = {
+export class Day {
     id: number;
     name: string;
     dayOfWeek: number;
     foods: Array<Meal>;
+
+    constructor(id: number, name: string, dayOfWeek: number, foods: Array<Meal>){
+        this.id = id;
+        this.name = name;
+        this.dayOfWeek = dayOfWeek;
+        this.foods = foods;
+    }
 }
 
 enum DayOfWeek{
