@@ -11,9 +11,9 @@ import { MealOfTheDayComponent } from './home/meal-of-the-day/meal-of-the-day.co
 import { HomeMessageComponent } from './home/home-message/home-message.component';
 import { MealsComponent } from './meals/meals.component';
 import { FoodsComponent } from './foods/foods.component';
-import { FoodSelectionComponent } from './foods/food-selection/food-selection.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FoodSelectionComponent } from './food-selection/food-selection.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { MatInputModule } from '@angular/material/input';
     MealOfTheDayComponent,
     HomeMessageComponent,
     FoodsComponent,
-    FoodSelectionComponent
+    FoodSelectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,10 +32,11 @@ import { MatInputModule } from '@angular/material/input';
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
       {path: 'meals', component: MealsComponent},
+      {path: 'food-selection/:id', pathMatch:'prefix', component: FoodSelectionComponent},
       {path: 'foods', component: FoodsComponent, 
-        children:[{
-          path: 'food-selection', component: FoodSelectionComponent
-        }]
+        /*children:[{
+          //path: 'food-selection', component: FoodSelectionComponent
+        }]*/
       },
     ]),
   ],

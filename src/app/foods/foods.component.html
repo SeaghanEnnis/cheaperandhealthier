@@ -1,12 +1,47 @@
-<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-    <div class="btn-group mr-2" role="group" aria-label="First group">
-      <button type="button" class="btn btn-secondary" routerLink="/foods/food-selection">Meats</button>
-      <button type="button" class="btn btn-secondary" routerLink="/foods/food-selection">Vegetables</button>
-      <button type="button" class="btn btn-secondary" routerLink="/foods/food-selection">Fruits</button>
-      <button type="button" class="btn btn-secondary" routerLink="/foods/food-selection">Grains</button>
-      <button type="button" class="btn btn-secondary" routerLink="/foods/food-selection">Spices</button>
-      <button type="button" class="btn btn-secondary" routerLink="/foods/food-selection">Drinks</button>
-    </div>
+<br>
+
+<mat-form-field appearance="fill">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search Foods" #input>
+</mat-form-field>
+
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="allFoods" matSort class="food-table">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="calories">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Calories </th>
+            <td mat-cell *matCellDef="let element"> {{element.calories}} </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons 
+    aria-label="Select Foods">
+    </mat-paginator>
 </div>
 
 <router-outlet></router-outlet>
