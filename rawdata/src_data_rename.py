@@ -7,12 +7,7 @@ data = json.load(f)
 rename_map = {
     "Almond butter, creamy" : "Almond Butter",
     "Almond milk, unsweetened, plain, refrigerated" : "Almond Milk",
-    "Almond milk, unsweetened, plain, shelf stable": "Almond Milk",
     "Apples, fuji, with skin, raw" : "Apple",
-    "Apples, gala, with skin, raw" : "Apple",
-    "Apples, granny smith, with skin, raw" : "Apple",
-    "Apples, honeycrisp, with skin, raw" : "Apple",
-    "Apples, red delicious, with skin, raw" : "Apple",
     "Applesauce, unsweetened, with added vitamin C" : "Applesauce",
     "Apple juice, with added vitamin C, from concentrate, shelf stable": "Apple Juice",
     "Bananas, ripe and slightly ripe, raw": "Bananas",
@@ -221,11 +216,13 @@ for food in data:
     food_temp = food
     
     if food["name"] in rename_map:
-        print(food["name"])
+        #print(food["name"])
         food_temp["name"] = rename_map[food["name"]]
         if food["name"] not in skip_dupes:
             renamed_data.append(food_temp)
             skip_dupes.append(food["name"])
+        else:
+            print(food["name"])
     else:
         renamed_data.append(food_temp)
     

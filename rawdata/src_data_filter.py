@@ -41,8 +41,13 @@ ignore_foods = [
     "Turkey, ground, 93% lean, 7% fat, pan-broiled crumbles",
     "Flour, 00",
     "Restaurant, Chinese, sweet and sour pork",
-    "Yogurt, Greek, strawberry, nonfat"
-
+    "Yogurt, Greek, strawberry, nonfat",
+    "Apples, gala, with skin, raw",
+    "Apples, granny smith, with skin, raw",
+    "Apples, honeycrisp, with skin, raw",
+    "Apples, red delicious, with skin, raw",
+    "Bananas, overripe, raw",
+    "Almond milk, unsweetened, plain, shelf stable"
 ]
 x = 1
 

@@ -16,7 +16,7 @@ export class FoodService {
   }
 
   getAFood(id:number): Food{
-    return ALL[id];
+    return ALL[id - 1];
   }
 
 }
