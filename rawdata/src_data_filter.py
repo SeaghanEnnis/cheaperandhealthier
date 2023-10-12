@@ -49,6 +49,42 @@ ignore_foods = [
     "Bananas, overripe, raw",
     "Almond milk, unsweetened, plain, shelf stable"
 ]
+
+nutrients_to_include = {
+    "Energy" : "calories",
+    "Protein" : "protein",
+    "Carbohydrate, by summation" : "carbohydrates",
+    "Carbohydrate, by difference" : "carbohydrates",
+    "Total lipid (fat)" : "fats",
+    "Sugars, Total" : "sugars",
+    "Fiber, total dietary" : "fiber",
+     "Magnesium, Mg" : "magnesium_mg", 
+     "Selenium, Se" : "selenium_ug", 
+     "Sodium, Na" : "sodium_mg", 
+     "Zinc, Zn" :"zinc_mg",
+     "Copper, Cu" : "copper_mg",
+     "Potassium, K" :"potassium_mg", 
+    "Phosphorus, P": "phosphorus_mg", 
+    "Manganese, Mn": "manganese_mg",
+    "Calcium, Ca" : "calcium_mg",
+    "Iron, Fe" : "iron_mg", 
+    "Vitamin A, RAE," : "vitamin_a_mg",
+    "Thiamin" : "vitamin_b1_mg",
+    "Riboflavin" : "vitamin_b2_mg",
+    "Niacin" : "vitamin_b3_mg", 
+    "Panothenic Acid" : "vitamin_b5_mg",
+    "Pyridoxal" : "vitamin_b6_mg", 
+    "Biotin" : "vitamin_b7_mg",
+    "Folate, total" : "vitamin_b9_mg",
+    "Cobalamin" : "vitamin_b12_mg", 
+    "Vitamin B-6": "vitamin_b6_mg",
+    "Vitamin C, total ascorbic acid" : "vitamin_c_mg",
+    "Vitamin D (D2 + D3)" : "vitamin_d_mg",
+    "Vitamin E (alpha-tocopherol)" : "vitamin_e_mg", 
+    "Vitamin K (Dihydrophylloquinone)" : "vitamin_k_mg", 
+    "Vitamin K (phylloquinone)" : "vitamin_k_mg"
+
+}
 x = 1
 
 for food in data:
@@ -59,10 +95,15 @@ for food in data:
         thisFood["name"] = data[food]["name"]
         thisFood["type"] = "Unknown"
         thisFood["price"] = 100
-        if("nutrients" in data[food] and "Energy" in data[food]["nutrients"]):
-            thisFood["calories"] = data[food]["nutrients"]["Energy"]["amount"]
-        else: 
-            thisFood["calories"] = -1
+        for key,value in nutrients_to_include.items():
+            if("nutrients" in data[food] and key in data[food]["nutrients"]):
+                if (value in thisFood and thisFood[value] != 0):
+                    thisFood[value] =  thisFood[value] if thisFood[value] > data[food]["nutrients"][key]["amount"] else data[food]["nutrients"][key]["amount"]
+                else:
+                    thisFood[value] = data[food]["nutrients"][key]["amount"]
+            else: 
+                thisFood[value] = 0
+
         total_output["foods"].append(thisFood)
 
 w = open("rawdata/src_data_filter.json", "w")

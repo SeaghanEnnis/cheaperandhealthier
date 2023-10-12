@@ -22,7 +22,7 @@ export class FoodsComponent {
   allFoodArray:  Food[] = [];
 
   allFoods = new MatTableDataSource<Food>();
-  columnsToDisplay: string[] = ["id","name", "type", "price", "calories"];
+  columnsToDisplay: string[] = ["id","name", "type", "price", "calories", "protein", "carbohydrates", "fats"];
     
   constructor(private foodService: FoodService){
     this.allFoodArray.push(...foodService.getAllFoods());

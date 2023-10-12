@@ -4,7 +4,7 @@ f = open("rawdata/foodDump.json")
 
 data = json.load(f)
 
-list_of_nutrients = ["Energy", "Protein", "Carbohydrate, by summation",
+list_of_nutrients = ["Energy", "Protein", "Carbohydrate, by summation", "Carbohydrate, by difference",
                      "Total lipid (fat)", "Sugars, Total","Fiber, total dietary",
                      "Magnesium, Mg", "Selenium, Se", "Sodium, Na", "Zinc, Zn","Copper, Cu","Potassium, K", 
                      "Phosphorus, P", "Manganese, Mn","Calcium, Ca","Iron, Fe", "Vitamin A, RAE,",
