@@ -1,62 +1,63 @@
 <br>
-
-<mat-form-field appearance="fill">
-    <input matInput (keyup)="applyFilter($event)" placeholder="Search Foods" #input>
-</mat-form-field>
-
-
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="allFoods" matSort class="food-table">
-
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-        </ng-container>
+<div class="container">
+    <mat-form-field appearance="fill">
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search Foods" #input>
+    </mat-form-field>
 
 
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-            <td mat-cell *matCellDef="let element"> <a routerLink="/food-selection/{{element.id}}"> {{element.name}}</a></td>
-        </ng-container>
+    <div>
+        <table mat-table [dataSource]="allFoods" matSort class="food-table">
 
-        <ng-container matColumnDef="type">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
-            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="price">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="calories">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Calories </th>
-            <td mat-cell *matCellDef="let element"> {{element.calories}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="protein">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Protein </th>
-            <td mat-cell *matCellDef="let element"> {{element.protein}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="carbohydrates">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Carbohydrates </th>
-            <td mat-cell *matCellDef="let element"> {{element.carbohydrates}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="fats">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fats </th>
-            <td mat-cell *matCellDef="let element"> {{element.fats}} </td>
-        </ng-container>
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
 
 
-        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
-    </table>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let element"> <a routerLink="/food-selection/{{element.id}}">
+                        {{element.name}}</a></td>
+            </ng-container>
 
-    <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons 
-    aria-label="Select Foods">
-    </mat-paginator>
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+                <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="calories">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Calories </th>
+                <td mat-cell *matCellDef="let element"> {{element.calories}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="protein">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Protein </th>
+                <td mat-cell *matCellDef="let element"> {{element.protein}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="carbohydrates">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Carbohydrates </th>
+                <td mat-cell *matCellDef="let element"> {{element.carbohydrates}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fats">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Fats </th>
+                <td mat-cell *matCellDef="let element"> {{element.fats}} </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons aria-label="Select Foods">
+        </mat-paginator>
+    </div>
 </div>
 
 <router-outlet></router-outlet>

@@ -14,6 +14,9 @@ import { FoodsComponent } from './foods/foods.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FoodSelectionComponent } from './food-selection/food-selection.component';
+import { MealSelectionComponent } from './meal-selection/meal-selection.component';
+import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -23,11 +26,13 @@ import { FoodSelectionComponent } from './food-selection/food-selection.componen
     MealOfTheDayComponent,
     HomeMessageComponent,
     FoodsComponent,
+    MealsComponent,
     FoodSelectionComponent,
+    MealSelectionComponent,
   ],
   imports: [
     BrowserModule,
-    MatTableModule,MatSortModule,MatPaginatorModule, MatFormFieldModule, MatInputModule,
+    MatTableModule,MatSortModule,MatPaginatorModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule,
     RouterModule.forRoot([
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
