@@ -10,4 +10,13 @@ export class Meal {
         this.name = name;
         this.foods = foods;
     }
+
+    calories(){
+        let sum = 0;
+        this.foods.forEach(element => {
+            if(element.calories)
+                sum += element.calories;
+        });
+        return sum;
+    }
 }
