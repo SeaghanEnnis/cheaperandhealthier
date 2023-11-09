@@ -37,6 +37,7 @@ import {MatCardModule} from '@angular/material/card';
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
       {path: 'meals', component: MealsComponent},
+      {path: 'meal-selection/:id', pathMatch:'prefix', component: MealSelectionComponent},
       {path: 'food-selection/:id', pathMatch:'prefix', component: FoodSelectionComponent},
       {path: 'foods', component: FoodsComponent, 
         /*children:[{
