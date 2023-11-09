@@ -17,6 +17,7 @@ import { FoodSelectionComponent } from './food-selection/food-selection.componen
 import { MealSelectionComponent } from './meal-selection/meal-selection.component';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { MealSelectionImageComponent } from './meal-selection/meal-selection-image/meal-selection-image.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MatCardModule} from '@angular/material/card';
     MealsComponent,
     FoodSelectionComponent,
     MealSelectionComponent,
+    MealSelectionImageComponent,
   ],
   imports: [
     BrowserModule,
