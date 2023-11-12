@@ -1,13 +1,12 @@
 <br>
 <app-meal-selection-image></app-meal-selection-image>
-<h4>Your Meal:</h4>
+<h4>Your Meal: {{meal.name}}</h4>
 <p>ID: {{id}}</p>
-<p>Name: </p>
 <p>Type: </p>
 <p>Price: </p>
-<p>Calories: </p>
-<p>Protein: </p>
-<p>Carbohydrates: </p>
-<p>Fats: </p>
+<p>Calories: {{meal.calories()}}</p>
+<p>Protein: {{meal.protien()}}</p>
+<p>Carbohydrates: {{meal.carbohydrates()}}</p>
+<p>Fats: {{meal.fats()}}</p>
 
 <router-outlet></router-outlet>

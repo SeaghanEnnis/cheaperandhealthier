@@ -19,4 +19,31 @@ export class Meal {
         });
         return sum;
     }
+
+    protien(){
+        let sum = 0;
+        this.foods.forEach(element => {
+            if(element.protein)
+                sum += element.protein;
+        });
+        return sum;
+    }
+
+    carbohydrates(){
+        let sum = 0;
+        this.foods.forEach(element => {
+            if(element.carbohydrates)
+                sum += element.carbohydrates;
+        });
+        return sum;
+    }
+
+    fats(){
+        let sum = 0;
+        this.foods.forEach(element => {
+            if(element.fats)
+                sum += element.fats;
+        });
+        return sum;
+    }
 }

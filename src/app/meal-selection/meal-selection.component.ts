@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Meal } from '../models/meal';
+import { MealService } from '../meal.service';
 
 @Component({
   selector: 'app-meal-selection',
@@ -9,9 +11,11 @@ import { ActivatedRoute } from '@angular/router';
 export class MealSelectionComponent {
 
   
-  id:Number;
-  constructor(private route: ActivatedRoute){
+  id:number;
+  meal:Meal;
+  constructor(private route: ActivatedRoute, private mealService: MealService){
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.meal =mealService.getAMeals(this.id);
   }
 
 }
